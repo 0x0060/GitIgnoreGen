@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitIgnoreGen</title>
+    <meta name="environment" content="production">
+    <meta name="author" content="0x0060">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta name="theme-color" content="#af0d53">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">GitIgnore<span>Gen</span></div>
+            <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+            <nav class="nav-links">
+                <a href="#home">Home</a>
+                <a href="https://api.github.com/gitignore/templates">API</a>
+                <button class="sign-in"><a class="cntc"
+                        href="https://github.com/0x0060/GitIgnoreGen">Source</a></button>
+            </nav>
+        </header>
+
+        <main id="home">
+            <h1>GitIgnore<br><span class="orange">Template Generator</span></h1>
+            <p class="description">Instantly generate <span class="code">.gitignore</span> files for your projects!
+                Select your language, and it's automatically copied to your clipboard for quick access.</p>
+
+            <br>
+            <label for="language"></label>
+            <select id="language">
+                <option value="">Language</option>
+            </select>
+            <button class="buttonnn" id="generate">Generate</button>
+    </div>
+    </main>
+
+    </div>
+
+    <section id="consulting">
+        <div class="container">
+            <footer>
+                <div class="footer-logo">
+                    <div class="logo">GitIgnore<span>Gen</span></div>
+                </div>
+                <div class="footer-social">
+                    <a href="https://api.github.com/gitignore/templates" target="_blank" aria-label="Twitter"
+                        class="social-icon"><i class='bx bx-cube-alt'></i></a>
+                    <a href="https://github.com/0x0060/GitIgnoreGen" target="_blank" aria-label="Discord"
+                        class="social-icon"><i class='bx bxl-github'></i></a>
+                </div>
+                <div class="footer-info">
+                    <p>&copy; 2024 GitIgnoreGen</p>
+                </div>
+            </footer>
+        </div>
+
+        </div>
+
+
+        <script>
+            const menuToggle = document.querySelector('.menu-toggle');
+            const nav = document.querySelector('nav');
+
+            menuToggle.addEventListener('click', () => {
+                nav.classList.toggle('active');
+            });
+        </script>
+        <script src="./assets/js/script.js"></script>
+
+</body>
+
+</html>

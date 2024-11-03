@@ -1,0 +1,973 @@
+:-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+* {
+    scrollbar-width: none;
+}
+
+:root {
+    --bg: #09090b;
+    --bord: 240 3.7% 15.9%;
+    --nc: #999999;
+    --fg: #cacaca;
+    /* --mc: #af8f0d; */
+    --mc: #af0d53;
+    /* --mc: #0daf56; */
+    --cw: #121212;
+    --bc: 25px;
+    --tw-border-opacity: 1;
+    --bgs: #16161c;
+    --bd: hsl(var(--bord) / var(--tw-border-opacity));
+}
+
+::selection {
+    background-color: var(--mc);
+    color: var(--fg);
+}
+
+::-moz-selection {
+    background-color: var(--mc);
+    color: var(--fg);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+@font-face {
+    font-family: 'Iosevka Nerd Font';
+    src: url('https://spectralinsights.github.io/fonts/Iosevka/IosevkaNerdFontMono-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    font-family: 'Iosevka Nerd Font' !important;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    background: var(--bg);
+    backdrop-filter: blur(15px);
+    color: var(--fg);
+    overflow-x: hidden;
+    position: relative;
+    animation: fadeIn 1.5s ease-in-out;
+    height: 100vh;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Container */
+.container {
+    max-width: 1350px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Header */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    padding: 15px 20px;
+    background-color: var(--bg);
+    border-radius: var(--bc);
+    border: 1px var(--bd) solid;
+    /* Staggering */
+}
+
+/* Logo on the left */
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--fg);
+    opacity: 1;
+    animation: fadeIn 0.2s ease-in-out forwards;
+    animation-delay: 0.3s;
+    /* Adjusted delay for consistency */
+    /* Staggering */
+}
+
+.logo span {
+    color: var(--mc);
+}
+
+/* Navigation links centered */
+nav {
+    display: flex;
+    justify-content: right;
+    flex: 1;
+    /* Staggering */
+}
+
+nav a {
+    margin-right: 20px;
+    color: var(--nc);
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: all 0.3s;
+}
+
+nav a:hover {
+    color: var(--mc);
+    transition: all 0.3s;
+}
+
+/* Sign-In button on the right */
+.sign-in {
+    background: var(--mc);
+    border: 1px solid var(--mc);
+    color: var(--bg);
+    padding: 8px 20px;
+    border-radius: var(--bc);
+    cursor: pointer;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    opacity: 1;
+    /* Staggering */
+    animation: ease-in-out 3s;
+    transition: all 0.3s;
+}
+
+
+.sign-in:hover {
+    border-color: var(--mc);
+    color: var(--fg);
+    background-color: var(--bg);
+    animation: ease-in-out 3s;
+    transition: all 0.3s;
+
+}
+
+.sign-in:hover .cntc {
+    color: #cacaca;
+}
+
+/* Main content */
+main {
+    text-align: center;
+    margin-bottom: 60px;
+    margin-top: 150px;
+    z-index: 1;
+    opacity: 1;
+    /* Staggering */
+}
+
+main h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    color: #fff;
+}
+
+main p {
+    font-size: 18px;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    line-height: 1.6;
+    color: #bbb;
+}
+
+@keyframes borderFade {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 1;
+        border-color: rgba(255, 255, 255, 0.7);
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Code snippet section */
+/* Code snippet section */
+.code-snippet {
+    display: flex;
+    justify-content: center;
+    opacity: 1;
+    /* Staggering */
+    padding-top: 45px;
+}
+
+.code-window {
+    border: 1px var(--mc) solid;
+    background-color: var(--bg);
+    padding: 20px;
+    border-radius: 10px;
+    width: 36%;
+    max-width: 800px;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    /* Center content within the code window */
+}
+
+/* Image styling */
+.code-image {
+    max-width: 100%;
+    /* Limit the image width */
+    height: auto;
+    /* Maintain aspect ratio */
+    margin: 60px auto;
+    /* Add some margin and center */
+    display: block;
+    /* Center the image */
+    border-radius: var(--bc);
+}
+
+
+.code-header {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.code-header .dot {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.code-header .red {
+    background-color: #4c0725;
+}
+
+.code-header .yellow {
+    background-color: #6d1c3f;
+}
+
+.code-header .green {
+    background-color: #883056;
+}
+
+pre {
+    margin: 0;
+    font-size: 16px;
+    color: var(--nc);
+    background: var(--bg);
+    padding: 10px;
+    text-align: left !important;
+    border-radius: 5px;
+    overflow-x: auto;
+}
+
+code {
+    font-family: 'Courier New', Courier, monospace;
+    white-space: pre;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    main h1 {
+        font-size: 36px;
+    }
+
+    main p {
+        font-size: 16px;
+    }
+
+    .cta-button {
+        padding: 12px 24px;
+        font-size: 14px;
+    }
+}
+
+
+.button {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
+    background: none;
+    color: var(--fg);
+    cursor: pointer;
+    position: relative;
+    padding: 8px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 14px;
+    transition: all .15s ease;
+}
+
+.button::before,
+.button::after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    left: 0;
+    height: calc(50% - 5px);
+    border: 1px solid var(--mc);
+    transition: all .15s ease;
+}
+
+.button::before {
+    top: 0;
+    border-bottom-width: 0;
+}
+
+.button::after {
+    bottom: 0;
+    border-top-width: 0;
+}
+
+.button:active,
+.button:focus {
+    outline: none;
+}
+
+.button:active::before,
+.button:active::after {
+    right: 3px;
+    left: 3px;
+}
+
+.button:active::before {
+    top: 3px;
+}
+
+.button:active::after {
+    bottom: 3px;
+}
+
+.button_lg {
+    position: relative;
+    display: block;
+    padding: 10px 20px;
+    color: #ccc;
+    background-color: var(--mc);
+    overflow: hidden;
+    box-shadow: inset 0px 0px 0px 1px transparent;
+}
+
+.button_lg::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 2px;
+    background-color: var(--mc);
+}
+
+.button_lg::after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 4px;
+    height: 4px;
+    background-color: var(--mc);
+    transition: all .2s ease;
+}
+
+.button_sl {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: -1px;
+    left: -8px;
+    width: 0;
+    background-color: var(--bgs);
+    transform: skew(-15deg);
+    transition: all .2s ease;
+}
+
+.button_text {
+    position: relative;
+    color: var(--bgs);
+}
+
+.button:hover .button_text {
+    color: var(--fg);
+}
+
+.button:hover {
+    color: #0f1923;
+}
+
+.button:hover .button_sl {
+    width: calc(100% + 15px);
+}
+
+.button:hover .button_lg::after {
+    background-color: var(--bd);
+}
+
+
+.orange {
+    color: var(--mc);
+}
+
+/* Existing CSS... */
+/* 
+/* Mobile menu styles */
+.menu-toggle {
+    display: none;
+    /* Hide toggle button by default */
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: var(--fg);
+    cursor: pointer;
+}
+
+/* Header */
+header {
+    flex-wrap: wrap;
+    /* Allow items to wrap */
+}
+
+/* Navigation links */
+nav {
+    display: flex;
+    /* Default to flexbox */
+}
+
+/* Media queries for mobile devices */
+@media (max-width: 830px) {
+    header {
+        justify-content: space-between;
+    }
+
+    nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: var(--bg);
+        position: absolute;
+        top: 60px;
+        left: 0;
+        z-index: 100;
+    }
+
+    nav a {
+        display: flex;
+        border-bottom: 1px solid var(--mc);
+        width: 100%;
+        border-radius: 2px;
+        align-items: center;
+        justify-content: center;
+        margin: 15px
+    }
+
+    nav.active {
+        display: contents;
+        margin: 15px;
+        margin-top: 15px;
+        border: 1px solid var(--bd);
+        border-radius: var(--bc);
+        margin-top: 35px;
+        margin-left: 20px;
+        padding: 10px;
+        width: 94.5%;
+        align-items: center;
+        margin-right: 50px;
+        justify-items: right;
+
+    }
+
+    .menu-toggle {
+        display: block;
+        /* Show toggle button on mobile */
+    }
+
+    main h1 {
+        font-size: 36px;
+    }
+
+    main p {
+        font-size: 16px;
+    }
+
+    .cta-button {
+        padding: 12px 24px;
+        font-size: 14px;
+    }
+}
+
+nav a {
+    padding: 10px 20px;
+}
+
+/* Floating Balls Animation */
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.balls {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: -1;
+
+}
+
+.ball {
+    position: absolute;
+    border-radius: 50%;
+    background-color: var(--mc);
+    opacity: 0.7;
+    backdrop-filter: blur(70px);
+}
+
+.card {
+    max-width: 320px;
+    /* Max width for each card */
+    flex: 1;
+    /* Allow cards to grow equally */
+    min-width: 250px;
+    /* Set a minimum width to prevent too narrow cards */
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--bc);
+    background: rgba(9, 9, 11, 0.8);
+    /* Darker background for contrast */
+    backdrop-filter: blur(13px);
+    /* Apply dropdown blur to the background */
+    padding: 2rem;
+    border: 1px solid var(--bd);
+    color: var(--fg);
+    /* box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); */
+    position: relative;
+    /* Positioning context for hover effects */
+    margin: 20px;
+    /* Add vertical margin for spacing between cards */
+
+}
+
+/* Ensure hover effect maintains the blur */
+.card:hover {
+    /* transform: translateY(-5px); */
+    /* box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); */
+}
+
+/* Pricing Table */
+.pricing-table {
+    display: flex;
+    /* Display cards in a row */
+    justify-content: center;
+    /* Center cards horizontally */
+    gap: 20px;
+    /* Add gap between cards */
+}
+
+/* Other existing styles remain unchanged... */
+.card h2 {
+    font-size: 24px;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: var(--mc);
+}
+
+.card .price {
+    font-size: 2.5rem;
+    line-height: 1;
+    font-weight: 600;
+    text-align: center;
+    color: var(--mc);
+}
+
+.features {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+    flex-grow: 1;
+}
+
+.features li {
+    font-size: 16px;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+}
+
+.checkmark {
+    color: var(--mc);
+    margin-right: 15px;
+}
+
+.x-mark {
+    color: var(--nc);
+    /* color: var(--mc); */
+    margin-right: 15px;
+}
+
+/* Responsive Design */
+
+@media (max-width: 1330px) {
+    .balls {
+        display: none;
+    }
+}
+
+@media (max-width: 830px) {
+    .pricing-table {
+        flex-direction: column;
+        /* Stack cards vertically on small screens */
+        align-items: center;
+    }
+
+    .card {
+        margin: 50px 0;
+        /* Add some spacing between cards */
+        flex: none;
+        /* Prevent flex-grow */
+        width: 100%;
+        /* Make cards full width */
+    }
+}
+
+.consulting-section {
+    margin-top: 150px;
+    padding: 60px 20px;
+    /* background-color: var(--b/g); */
+    color: var(--fg);
+    border: 1px solid var(--cw);
+    background: rgba(5, 5, 5, 0.8);
+    /* Darker background for contrast */
+    backdrop-filter: blur(13px);
+    border-radius: var(--bc);
+}
+
+.consulting-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.consulting-header h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: var(--mc);
+}
+
+.consulting-header p {
+    font-size: 18px;
+    color: #ccc;
+}
+
+.consulting-cards {
+    display: flex;
+
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.consulting-card {
+    background-color: var(--card-bg);
+    color: var(--card-fg);
+    padding: 20px;
+    text-align: center;
+    background: rgba(5, 5, 5, 0.8);
+    /* Darker background for contrast */
+    backdrop-filter: blur(13px);
+    /* transition: transform 0.3s ease, box-shadow 0.3s ease; */
+}
+
+.consulting-icon {
+    margin-bottom: 20px;
+}
+
+.consulting-icon img {
+    width: 60px;
+    height: 60px;
+}
+
+.consulting-card h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: var(--card-title);
+}
+
+.consulting-card p {
+    font-size: 15px;
+    color: var(--card-text);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .consulting-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .consulting-card {
+        margin-bottom: 20px;
+    }
+
+    .consulting-header h2 {
+        font-size: 28px;
+    }
+
+    .consulting-header p {
+        font-size: 16px;
+    }
+}
+
+
+/* Container that holds all the content */
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 40vh;
+}
+
+/* Ensure content takes up available space */
+.content {
+    flex: 1;
+    /* This makes the content area expand to fill available space */
+}
+
+/* Sticky footer */
+footer {
+    background-color: var(--bg);
+    color: #fff;
+    padding: 40px 0;
+    border-radius: var(--bc);
+    border: 1px var(--bd) solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    /* Changed to relative to not be sticky */
+    margin: 20px;
+    /* margin-top: 140px; */
+}
+
+/* Footer styles */
+.footer-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg);
+    /* Optional: To match the footer background */
+    margin: 0;
+    width: 100%;
+    position: relative;
+    /* To ensure it stays at the bottom */
+}
+
+/* Footer logo */
+.footer-logo {
+    margin-bottom: 20px;
+}
+
+.footer-logo .logo {
+    font-size: 28px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Footer links */
+.footer-links {
+    margin: 20px 0;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--mc);
+    /* Orange color on hover */
+}
+
+/* Footer social links */
+.footer-social {
+    margin: 20px 0;
+    margin-bottom: 40px;
+}
+
+.footer-social a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+    color: var(--mc);
+    /* Orange color on hover */
+}
+
+/* Footer info */
+.footer-info {
+    font-size: 14px;
+    color: #b3b3b3;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .footer-logo .logo {
+        font-size: 24px;
+    }
+
+    .footer-links a {
+        display: block;
+        margin: 5px 0;
+    }
+
+    .footer-social a {
+        font-size: 18px;
+        margin: 5px;
+    }
+}
+
+.button .contacta {
+    text-decoration: none;
+    color: var(--bgs) !important;
+}
+
+.cntc {
+    padding: 0 !important;
+    margin: 0 !important;
+    color: var(--bg);
+}
+
+.bx {
+    font-size: 25px;
+}
+
+
+
+
+/*  */
+
+
+.code-block {
+    background-color: #27272a;
+    padding: 20px;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-family: Consolas, "Courier New", monospace;
+    color: #cacaca;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.key {
+    color: #cacaca;
+    /* Light Blue for keys */
+}
+
+.string {
+    color: #ce9178;
+    /* Light Orange for strings */
+}
+
+.number {
+    color: #b5cea8;
+    /* Light Green for numbers */
+}
+
+.date {
+    color: #d7ba7c;
+    /* Light Yellow for dates */
+}
+
+.null {
+    color: #a6e22e;
+    /* Light Green for null */
+}
+
+.boolean {
+    color: #66d9ef;
+    /* Light Cyan for booleans */
+}
+
+pre {
+    margin: 0;
+    text-align: left;
+}
+
+.quote {
+    color: #af0d53;
+}
+
+label {
+    font-size: 1.2em; /* Slightly larger font for the label */
+}
+
+select {
+    padding: 10px; /* Padding inside the select element */
+    font-size: 1em; /* Font size for the dropdown */
+    border: 2px solid var(--bd); /* Red border for the dropdown */
+    border-radius: 5px; /* Rounded corners for the dropdown */
+    background-color: #09090b; /* Dark background for the dropdown */
+    color: var(--fg); /* White text for the dropdown */
+    margin-bottom: 20px; /* Space below the dropdown */
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+
+.buttonnn {
+    padding: 10px; /* Padding inside the select element */
+    font-size: 1em; /* Font size for the dropdown */
+    border: 2px solid var(--bd); /* Red border for the dropdown */
+    background-color: var(--bg); /* Dark background for the dropdown */
+    cursor: pointer; /* Change cursor to pointer */
+    color: var(--fg); /* White text for the dropdown */
+
+}
+
+.code {
+    background-color: var(--bgs); /* Slightly transparent white background */
+    padding: 5px; /* Padding around the code text */
+    border-radius: 5px; /* Rounded corners */
+    font-family: monospace; /* Monospace font for code */
+}
